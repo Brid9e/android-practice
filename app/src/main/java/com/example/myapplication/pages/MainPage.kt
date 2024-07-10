@@ -1,13 +1,17 @@
 package com.example.myapplication.pages
 
+import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
@@ -16,6 +20,8 @@ import androidx.navigation.NavHostController
 import com.example.myapplication.components.NavBar
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerDefaults
+import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.launch
 
@@ -43,7 +49,11 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                 modifier = Modifier
                     .padding(bottom = innerPadding.calculateBottomPadding())
             ) {
-                HorizontalPager(count = 2, state = pagerState) { pageIndex ->
+                HorizontalPager(
+                    count = 2,
+                    state = pagerState,
+                    flingBehavior = flingBehavior(pagerState = pagerState, noOfPages = 2)
+                ) { pageIndex ->
                     println("change$pageIndex")
                     when (pageIndex) {
                         0 -> Home(navController)
@@ -53,4 +63,35 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
             }
         }
     }
+}
+
+/**
+ * 控制滑动切换阈值
+ */
+val minFlingDistanceDp = 30.dp
+
+@OptIn(ExperimentalPagerApi::class, dev.chrisbanes.snapper.ExperimentalSnapperApi::class)
+@Composable
+fun flingBehavior(pagerState: PagerState, noOfPages: Int): FlingBehavior {
+    var currentPageIndex = remember { pagerState.currentPage }
+    return PagerDefaults.flingBehavior(
+        state = pagerState,
+        snapIndex = { layoutInfo, _, _ ->
+            val distanceToStartSnap = layoutInfo.distanceToIndexSnap(currentPageIndex)
+            currentPageIndex = when {
+                distanceToStartSnap < -(minFlingDistanceDp.value) -> {
+                    (currentPageIndex + 1).coerceAtMost(noOfPages - 1)
+                }
+
+                distanceToStartSnap > minFlingDistanceDp.value -> {
+                    (currentPageIndex - 1).coerceAtLeast(0)
+                }
+
+                else -> {
+                    currentPageIndex
+                }
+            }
+            currentPageIndex
+        }
+    )
 }
