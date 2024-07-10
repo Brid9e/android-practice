@@ -12,9 +12,6 @@ import com.example.myapplication.data.SettingsData
 fun My(navController: NavHostController) {
     Column {
         UserInfoCard()
-        ContentBox() {
-            CellGroup(SettingsData)
-        }
+        ContentBox { CellGroup(SettingsData, navController) }
     }
-
 }

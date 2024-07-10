@@ -16,10 +16,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.myapplication.data.Settings
 
 @Composable
-fun CellGroup(list: Array<Settings> = emptyArray()) {
+fun CellGroup(list: Array<Settings> = emptyArray(), navController: NavHostController) {
     list.forEach { row ->
         Row(
             modifier = Modifier
@@ -27,13 +28,15 @@ fun CellGroup(list: Array<Settings> = emptyArray()) {
                 .fillMaxWidth()
                 .height(60.dp)
                 .clip(shape = RoundedCornerShape(8.dp))
-                .clickable { }
+                .clickable {
+                    navController.navigate(row.route)
+                }
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Icon(row.icon, "123132", modifier = Modifier.size(28.dp))
             Text(
-                row.name.toString(),
+                row.name,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 20.sp,
                 modifier = Modifier.padding(start = 16.dp),

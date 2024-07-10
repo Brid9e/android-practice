@@ -68,8 +68,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation("io.coil-kt:coil-compose:2.6.0")
-    implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
-    implementation("androidx.compose.material:material-icons-extended:1.5.1")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.31.0-alpha")
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.pager)
+    implementation(libs.lifecycle.viewmodel.compose)
+//    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

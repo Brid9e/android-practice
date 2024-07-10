@@ -11,8 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
+@Deprecated("Use SystenStatusBar instead")
 @Composable
-fun SystenStatusBar(color: Color = Color.Transparent) {
+fun SystemStatusBar(color: Color = Color.Transparent) {
     // 获取系统状态栏高度
     val sysStatusBarHeight = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
     Box(

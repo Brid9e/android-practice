@@ -7,11 +7,11 @@ import androidx.compose.material.icons.outlined.LiveHelp
 import androidx.compose.material.icons.outlined.Tune
 import androidx.compose.ui.graphics.vector.ImageVector
 
-data class Settings(val name: String, val icon: ImageVector)
+data class Settings(val name: String, val route: String, val icon: ImageVector)
 
 val SettingsData = arrayOf(
-    Settings("Zone", Icons.Filled.AllInclusive),
-    Settings("Setting", Icons.Outlined.Tune),
-    Settings("Help", Icons.Outlined.LiveHelp),
-    Settings("About", Icons.Outlined.Info),
+    Settings("Zone", "", Icons.Filled.AllInclusive),
+    Settings("Setting", "", Icons.Outlined.Tune),
+    Settings("Help", "my/help", Icons.Outlined.LiveHelp),
+    Settings("About", "", Icons.Outlined.Info),
 )
