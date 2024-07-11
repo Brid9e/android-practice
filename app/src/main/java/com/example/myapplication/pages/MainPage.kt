@@ -69,9 +69,8 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                     HorizontalPager(
                         count = 2,
                         state = pagerState,
-                        flingBehavior = flingBehavior(pagerState = pagerState, noOfPages = 2)
+//                        flingBehavior = flingBehavior(pagerState = pagerState, noOfPages = 2)
                     ) { pageIndex ->
-                        println("change$pageIndex")
                         when (pageIndex) {
                             0 -> Home(navController)
                             1 -> My(navController)
@@ -87,7 +86,7 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
 /**
  * 控制滑动切换阈值
  */
-val minFlingDistanceDp = 30.dp
+val minFlingDistanceDp = 10.dp
 
 @OptIn(ExperimentalPagerApi::class, dev.chrisbanes.snapper.ExperimentalSnapperApi::class)
 @Composable

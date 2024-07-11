@@ -29,7 +29,9 @@ fun CellGroup(list: Array<Settings> = emptyArray(), navController: NavHostContro
                 .height(60.dp)
                 .clip(shape = RoundedCornerShape(8.dp))
                 .clickable {
-                    navController.navigate(row.route)
+                    if (row.route.isNotEmpty()) {
+                        navController.navigate(row.route)
+                    }
                 }
                 .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,

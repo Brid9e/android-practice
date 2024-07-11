@@ -73,6 +73,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.pager)
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
     implementation(libs.lifecycle.viewmodel.compose)
 //    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }
