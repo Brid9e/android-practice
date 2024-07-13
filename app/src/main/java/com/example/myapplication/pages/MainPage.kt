@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
 import androidx.compose.foundation.OverscrollConfiguration
 import androidx.compose.foundation.OverscrollEffect
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.ScrollScope
@@ -42,7 +43,7 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
     val pagerState = rememberPagerState(0)
     val coroutineScope = rememberCoroutineScope()
     CompositionLocalProvider(
-        LocalOverscrollConfiguration provides null
+        LocalOverscrollConfiguration provides OverscrollConfiguration()
     ) {
         Surface(
             Modifier
@@ -60,6 +61,7 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                     modifier = Modifier
                         .height(90.dp),
                     tonalElevation = 0.dp,
+                    contentPadding = PaddingValues(0.dp)
                 )
             }) { innerPadding ->
                 Box(
@@ -69,6 +71,7 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                     HorizontalPager(
                         count = 2,
                         state = pagerState,
+                        userScrollEnabled = false
 //                        flingBehavior = flingBehavior(pagerState = pagerState, noOfPages = 2)
                     ) { pageIndex ->
                         when (pageIndex) {
@@ -80,7 +83,6 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
             }
         }
     }
-
 }
 
 /**

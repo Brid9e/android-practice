@@ -58,7 +58,7 @@ dependencies {
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -73,7 +73,6 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.pager)
-    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
     implementation(libs.lifecycle.viewmodel.compose)
 //    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }
