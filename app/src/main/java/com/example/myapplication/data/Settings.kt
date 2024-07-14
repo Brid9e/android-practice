@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 data class Settings(val name: String, val route: String, val icon: ImageVector)
 
 val SettingsData = arrayOf(
-    Settings("Zone", "", Icons.Filled.AllInclusive),
-    Settings("Setting", "", Icons.Outlined.Tune),
-    Settings("Help", "my/help", Icons.Outlined.LiveHelp),
-    Settings("About", "", Icons.Outlined.Info),
+    Settings("空间", "", Icons.Filled.AllInclusive),
+    Settings("设置", "", Icons.Outlined.Tune),
+    Settings("帮助", "my/help", Icons.Outlined.LiveHelp),
+    Settings("关于", "", Icons.Outlined.Info),
 )

@@ -1,5 +1,6 @@
 package com.example.myapplication.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
@@ -34,7 +36,7 @@ fun SearchBar() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 0.dp)
-            .height(60.dp),
+            .height(40.dp),
     ) {
         Row(
             modifier = Modifier
@@ -48,12 +50,12 @@ fun SearchBar() {
                     Icons.Filled.ChatBubble,
                     contentDescription = "Space",
                     tint = MaterialTheme.colorScheme.onBackground,
-                    modifier = Modifier.size(26.dp)
+                    modifier = Modifier.size(16.dp)
                 )
                 Text(
                     text = "Space",
                     color = MaterialTheme.colorScheme.onBackground,
-                    fontSize = 19.sp,
+                    fontSize = 16.sp,
                     fontWeight = FontWeight.W500,
                     fontFamily = FontFamily.SansSerif,
                     modifier = Modifier.padding(start = 8.dp),
@@ -62,8 +64,7 @@ fun SearchBar() {
             Button(
                 onClick = { /*TODO*/ },
                 modifier = Modifier
-                    .width(29.dp)
-                    .height(29.dp),
+                    .size(20.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent
                 ),

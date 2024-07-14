@@ -29,7 +29,7 @@ fun HomeNavHostBox(navController: NavHostController, sysStatusBarHeight: Dp) {
         startDestination = "main",
         popEnterTransition = {
             slideInHorizontally(
-                initialOffsetX = { fullWidth -> -fullWidth / 6 }
+                initialOffsetX = { fullWidth -> -fullWidth }
             )
         },
         popExitTransition = {
@@ -44,7 +44,7 @@ fun HomeNavHostBox(navController: NavHostController, sysStatusBarHeight: Dp) {
         },
         exitTransition = {
             slideOutHorizontally(
-                targetOffsetX = { fullWidth -> -fullWidth / 6 }
+                targetOffsetX = { fullWidth -> -fullWidth }
             )
         }
     ) {

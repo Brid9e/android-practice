@@ -27,20 +27,20 @@ fun Panel(page: Int) {
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .height(180.dp)
             .clip(shape = RoundedCornerShape(8.dp))
-            .background(MaterialTheme.colorScheme.primary)
+            .background(MaterialTheme.colorScheme.onBackground.copy(0.15f))
             .clickable { }
     ) {
         Column {
             Text(
                 text = "Panel",
-                color = MaterialTheme.colorScheme.onPrimary,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 80.sp,
                 fontWeight = FontWeight(700),
                 modifier = Modifier.padding(top = 16.dp, start = 16.dp)
             )
             Text(
                 text = "SUB",
-                color = MaterialTheme.colorScheme.onPrimary.copy(0.8f),
+                color = MaterialTheme.colorScheme.onBackground.copy(0.8f),
                 fontSize = 50.sp,
                 fontWeight = FontWeight(600),
                 modifier = Modifier.padding(start = 16.dp)

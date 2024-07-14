@@ -74,5 +74,6 @@ dependencies {
     implementation(libs.accompanist.systemuicontroller)
     implementation(libs.accompanist.pager)
     implementation(libs.lifecycle.viewmodel.compose)
-//    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // 下拉刷新
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.30.1")
 }

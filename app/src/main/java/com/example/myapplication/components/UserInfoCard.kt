@@ -44,12 +44,12 @@ fun UserInfoCard() {
                 .padding(start = 16.dp),
         ) {
             Text(
-                text = "YOUR NAME",
+                text = "可以更好",
                 fontWeight = FontWeight.Bold,
                 fontSize = 26.sp
             )
             Text(
-                text = "SAY SOMETHING FOR WORLD",
+                text = "为这个世界说些什么吧！",
                 fontWeight = FontWeight.Bold,
                 fontSize = 14.sp,
                 modifier = Modifier.alpha(0.6f),

@@ -59,7 +59,7 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                         }
                     },
                     modifier = Modifier
-                        .height(90.dp),
+                        .height(70.dp),
                     tonalElevation = 0.dp,
                     contentPadding = PaddingValues(0.dp)
                 )
@@ -72,7 +72,6 @@ fun MainPage(navController: NavHostController, sysStatusBarHeight: Dp) {
                         count = 2,
                         state = pagerState,
                         userScrollEnabled = false
-//                        flingBehavior = flingBehavior(pagerState = pagerState, noOfPages = 2)
                     ) { pageIndex ->
                         when (pageIndex) {
                             0 -> Home(navController)
